@@ -2,6 +2,7 @@ import React from 'react';
 import factory from '../ethereum/factory';
 import { Card, Button } from 'semantic-ui-react'
 import Layout from '../components/layout';
+import Link from 'next/link';
 
 class CampaignIndex extends React.Component {
 
@@ -15,7 +16,11 @@ class CampaignIndex extends React.Component {
         const items = this.props.campaigns.map(address => {
             return {
                 header: address,
-                description: <a>View campaign</a>,
+                description: (
+                    <Link href={`/campaigns/${address}`}>
+                        <a>View campaign</a>
+                    </Link>
+                ),
                 fluid: true
             };
         });
@@ -28,12 +33,15 @@ class CampaignIndex extends React.Component {
             <Layout>
                 <div>
                     <h3>Open Campaigns</h3>
-                    <Button
-                        floated="right"
-                        content="Create Campaign"
-                        icon="add circle"
-                        primary
-                    />
+
+                    <Link href="/campaigns/new">
+                        <Button
+                            floated="right"
+                            content="Create Campaign"
+                            icon="add circle"
+                            primary
+                        />
+                    </Link>
 
                     { this.renderCampaigns() }
                 </div>
