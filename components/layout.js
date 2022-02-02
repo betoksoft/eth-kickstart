@@ -8,7 +8,6 @@ const Layout = (props) => {
         <Container>
             <Header />
             {props.children}
-            <h1>Im a footer</h1>
         </Container>
     );
 };
