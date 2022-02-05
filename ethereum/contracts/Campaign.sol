@@ -93,4 +93,8 @@ contract Campaign {
     function getRequestsCount() public view returns (uint) {
         return numRequests;
     }
+
+    function getApproversCount() public view returns (uint) {
+        return approversCount;
+    }
 }
